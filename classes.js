@@ -19,15 +19,18 @@ Content = Class.create({
 			type: Boolean,
 			default: function() {return true;}
 		},
-		canBeCreated: {
-			type: Boolean,
-			default: function() {return false;}
-		},
+		creationFormTemplate: {
+			type: String,
+			default: function() {return "";}
+		}
 	},
 
 	helpers: {
 		getTemplateName : function(obj) {
-			return "test";
+			return "";
 		}
 	}
 });
+
+
+ContentTypes = {};
