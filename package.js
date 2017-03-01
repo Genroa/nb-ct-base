@@ -17,6 +17,7 @@ Package.onUse(function(api) {
 	api.use('blaze-html-templates');
 	api.use("templating", "client");
 	api.use('jagi:astronomy@2.4.0');
+	api.use("genroa:nb-admin");
 
 	api.addFiles("classes.js");
 	api.addFiles("helpers.js");
@@ -26,6 +27,9 @@ Package.onUse(function(api) {
 
 	api.addFiles("inserting_existing_content_template.html", "client");
 	api.addFiles("inserting_existing_content_template.js", "client");
+
+	api.addFiles("content_management_template.html", "client");
+	api.addFiles("content_management_template.js", "client");
 
 	api.mainModule('nb-ct-base.js');
 });
