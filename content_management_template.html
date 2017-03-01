@@ -1,4 +1,11 @@
 <template name="content_management_template">
 	Gestion des contenus
 
+	<h3>Liste des contenus</h3>
+	
+	<ul>
+		{{#each content in getContents}}
+			{{content.className}} {{> Template.dynamic template=(getContentThumbnailTemplate content) data=(getContentDataContext content)}}
+		{{/each}}
+	</ul>
 </template>

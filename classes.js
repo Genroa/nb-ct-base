@@ -8,10 +8,6 @@ Content = Class.create({
 	collection: new Mongo.Collection('contents'),
 	
 	fields: {
-		humanName:{
-			type: String,
-			default: function() {return "contenu";}
-		},
 		className: {
 			type: String,
 			default: function() {return "Content";}
@@ -19,6 +15,10 @@ Content = Class.create({
 		showInContentManagement: {
 			type: Boolean,
 			default: function() {return true;}
+		},
+		name: {
+			type: String,
+			default: function() {return "";}
 		}
 	},
 
@@ -30,7 +30,13 @@ Content = Class.create({
 });
 
 
-ContentTypes = {};
+ContentTypes = {
+	_contentTypes: {},
+	addType: function(obj) {
+		ContentTypes._contentTypes[obj.class.className] = obj;
+	}
+};
+
 ContentCreationOptions = {
 	_options: {},
 	addCreationOption : function(obj) {
