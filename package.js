@@ -31,6 +31,7 @@ Package.onUse(function(api) {
 
 	api.addFiles("content_management_template.html", "client");
 	api.addFiles("content_management_template.js", "client");
+	api.addFiles("content.css", "client");
 
 	api.mainModule('nb-ct-base.js');
 });

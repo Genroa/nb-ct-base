@@ -1,9 +1,10 @@
 <template name="content_management_template">
 	<h3>Gestion des contenus</h3>
-	
-	<ul>
-		{{#each content in getContents}}
-			<li>{{content.className}} {{> Template.dynamic template=(getContentThumbnailTemplate content) data=(getContentDataContext content)}}</li>
-		{{/each}}
-	</ul>
+	<div class="mdl-grid">
+	{{#each content in getContents}}
+		<div class="mdl-cell mdl-cell--3-col">
+			{{> Template.dynamic template=(getContentThumbnailTemplate content) data=(getContentDataContext content)}}
+		</div>
+	{{/each}}
+	</div>
 </template>
