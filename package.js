@@ -24,7 +24,8 @@ Package.onUse(function(api) {
 	api.export("Content");
 	api.export("ContentTypes");
 	api.export("ContentCreationOptions");
-
+	api.export("getConvertedContent");
+	
 	api.addFiles("inserting_existing_content_template.html", "client");
 	api.addFiles("inserting_existing_content_template.js", "client");
 

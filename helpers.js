@@ -6,8 +6,8 @@ if(Meteor.isClient) {
 	});
 
 	Template.registerHelper("getContentThumbnailTemplate", function(content) {
-		let type = content && ContentTypes._contentTypes[content.className];
-		return type && type.thumbnailTemplate;
+		let cont = getConvertedContent(content);
+		return cont && cont.getThumbnailTemplate();
 	});
 	
 }

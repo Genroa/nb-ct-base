@@ -25,6 +25,14 @@ Content = Class.create({
 	helpers: {
 		getTemplateName : function(obj) {
 			return "";
+		},
+		
+		getThumbnailTemplate: function(obj) {
+			return "";
+		},
+		
+		getHumanName: function() {
+			return "contenu";
 		}
 	}
 });
@@ -33,7 +41,7 @@ Content = Class.create({
 ContentTypes = {
 	_contentTypes: {},
 	addType: function(obj) {
-		ContentTypes._contentTypes[obj.class.className] = obj;
+		ContentTypes._contentTypes[obj.className] = obj;
 	}
 };
 
@@ -54,6 +62,21 @@ ContentCreationOptions.addCreationOption({
 	
 	}
 });
+
+
+getConvertedContent = function(content) {
+	if(Meteor.isClient) {
+		if(content && window[content.className]) {
+			return window[content.className].findOne({_id: content._id});
+		}
+		return content;
+	} else if(Meteor.isServer) {
+		if(content && global[content.className]) {
+			return global[content.className].findOne({_id: content._id});
+		}
+	}
+};
+
 
 
 AdminPanels.addPanel({

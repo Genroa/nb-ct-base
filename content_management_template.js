@@ -7,8 +7,7 @@ Template.content_management_template.helpers({
 	},
 
 	'getContentDataContext' : function(content) {
-		let convertedContent = content && window[content.className].findOne({_id: content._id});
-		console.log(convertedContent);
+		let convertedContent = getConvertedContent(content);
 		return {content: convertedContent};
 	}
 });
